@@ -1,0 +1,50 @@
+<div class="c-card__profile">
+  <div class="c-card__profile--user">
+    <div class="c-user__image">
+      <img
+        [src]="
+          this.profile?.avatar
+            ? this.profile?.avatar
+            : '/assets/images/zenklub.png'
+        "
+        alt=""
+      />
+    </div>
+
+    <div class="c-user__info">
+      <div class="c-user__info--name">
+        <h3>{{ this.profile?.name }}</h3>
+      </div>
+
+      <div class="c-user__info--area">
+        <div class="c-info__specialization">
+          <span class="c-info__specialization--text"
+            ><strong>{{ this.profile?.specialization | uppercase }}</strong> |
+            {{ this.profile?.address.state }}</span
+          >
+        </div>
+
+        <div class="c-info__subarea">
+          <span>
+            <ng-container *ngFor="let item of this.profile?.viewers?.rating">
+              <mat-icon [style.color]="item === 1 ? '#ecc431' : '#737373d0'"
+                >grade</mat-icon
+              >
+            </ng-container>
+          </span>
+          <span> ({{ this.profile?.viewers?.totalCount }})</span>
+        </div>
+      </div>
+
+      <div class="c-user__info--price">
+        <span
+          ><strong>{{ this.profile?.job.price | currency: "BRL" }}</strong> / 50
+          minutos</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="c-card__profile--description">
+    <p>{{ this.profile?.description }}</p>
+  </div>
+</div>

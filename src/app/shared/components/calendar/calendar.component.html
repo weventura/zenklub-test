@@ -1,0 +1,51 @@
+<aside class="c-calendar">
+  <div class="c-calendar__header">
+    <div class="c-calendar__header--top">
+      <h1>Schedule your session!</h1>
+      <span>Time zone São Paulo</span>
+    </div>
+    <div class="c-calendar__header--bottom mat-elevation-z10">
+      <div class="c-bottom">
+        <div
+          class="c-bottom__arrow-left"
+          [class.disabled]="this.currentPoint <= 0"
+          (click)="onBack()"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </div>
+        <div class="c-bottom__carousel">
+          <ng-container *ngFor="let item of this.days; let i = index">
+            <div
+              class="c-bottom__carousel--content"
+              [ngClass]="direction ? 'in-right' : 'in-left'"
+            >
+              <p>{{ item.prefix }}</p>
+              <span>{{ this.month?.prefix + " " + item.current }}</span>
+            </div>
+          </ng-container>
+        </div>
+        <div
+          class="c-bottom__arrow-right"
+          [class.disabled]="this.destinationPoint >= 16"
+          (click)="onNext()"
+        >
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Calendary body schedules -->
+  <div class="c-calendar__body mat-elevation-z10">
+    <ng-container *ngFor="let item of days; let i = index">
+      <div class="c-calendar__body--column">
+        <ng-container *ngFor="let obj of item.schedules; let i = index">
+          <div class="c-column__content">
+            <span class="c-column__content--text">
+              {{ obj.hour }}
+            </span>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</aside>

@@ -1,0 +1,77 @@
+// Colors
+@import "../../styles/colors";
+
+.c-card {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  &__profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &--user {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+
+      .c-user__image img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+
+      .c-user__info {
+        padding: 0px 30px;
+
+        &--name h3 {
+          margin: 0;
+        }
+        &--area {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          .c-info__specialization {
+            &--text strong {
+              color: $zenBlue;
+            }
+          }
+
+          .c-info__subarea {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            span:nth-child(2) {
+              font-weight: 100;
+            }
+          }
+        }
+
+        &--name,
+        &--area,
+        &--price {
+          margin-bottom: 12px;
+        }
+      }
+    }
+
+    &--description {
+      p {
+        color: $zenGray;
+        padding: 0px 18px;
+      }
+    }
+  }
+
+  &__calendar {
+    width: 40%;
+  }
+}
